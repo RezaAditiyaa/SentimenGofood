@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Sentimen Gofood</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h1><span class="text-white">Analisis Sentimen Gofood</span></h1>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{url_for('predict')}}" method="POST">
+                            <div class="form-group mb-4">
+                                <textarea name="text" class="form-control" rows="3" placeholder="Masukkan teks yang ingin di analisis" required="required"></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Analisis</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h2><span class="text-white">Hasil Analisis</span></h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Teks: </b>{{ text }}</p>
+                        <p class="card-text"><b>Sentimen: </b>{{ prediksi }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
